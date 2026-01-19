@@ -3,6 +3,10 @@
 A Flask-based Job Recommendation System that suggests job roles based on user skills, experience level, and preferred domain.  
 It calculates match scores, highlights matched and missing skills, and displays results with a modern UI.
 
+🔗 Live Demo: https://job-recommendation-system-gy0f.onrender.com
+
+⚠️ Note: The app is hosted on Render (free tier). First load may take ~30–50 seconds due to cold start.
+
 ## 🔧 Tech Stack
 - Python
 - Flask
