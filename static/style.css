@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Card */
+.container {
+    background: #ffffff;
+    width: 480px;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    animation: fadeUp 0.8s ease;
+}
+
+/* Animation on load */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #0f2027;
+}
+
+/* Labels */
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Inputs & Select */
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Input focus animation */
+input:focus,
+select:focus {
+    border-color: #2c7be5;
+    box-shadow: 0 0 0 3px rgba(44, 123, 229, 0.15);
+}
+
+.btn {
+    background: linear-gradient(135deg, #4f8cff, #6bc1ff);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+/* Button click */
+button:active {
+    transform: scale(0.97);
+}
+
+/* Job Result Card */
+.job-card {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    background: #f9fafb;
+    border-left: 5px solid #2c7be5;
+    animation: fadeUp 0.5s ease;
+}
+
+.score {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+/* Skill tags */
+.skill {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 6px 10px;
+    margin: 6px 6px 0 0;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+.progress-section {
+    margin: 20px 0;
+}
+
+.score-label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #0f2027;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 14px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4f8cff, #6bc1ff);
+    border-radius: 8px;
+    animation: growBar 1s ease forwards;
+}
+
+@keyframes growBar {
+    from { width: 0; }
+}
+
+/* Job card animation */
+.animate-card {
+    animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Job card styling */
+.job-card {
+    background: #f9fbff;
+    border-left: 5px solid #4f8cff;
+    border-radius: 12px;
+    padding: 18px;
+    margin-top: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Skill badges */
+.skill {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 4px;
+}
+
+.skill.matched {
+    background: #e6f4ff;
+    color: #1d6fdc;
+}
+
+.skill.missing {
+    background: #ffecec;
+    color: #c0392b;
+}
+
+/* Hover effect */
+.job-card:hover {
+    transform: translateY(-4px);
+    transition: 0.3s ease;
+}

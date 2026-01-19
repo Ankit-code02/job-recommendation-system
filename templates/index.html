@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Job Recommendation System</h2>
+
+    <form method="POST">
+        <label>Your Skills (comma separated)</label>
+        <input type="text" name="skills" required>
+
+        <label>Experience</label>
+        <select name="experience">
+            <option>Fresher</option>
+            <option>1–3 Years</option>
+            <option>3+ Years</option>
+        </select>
+
+        <label>Preferred Domain</label>
+        <select name="domain">
+            <option value="web">Web Development</option>
+            <option value="backend">Backend</option>
+            <option value="data">Data</option>
+            <option value="ml">Machine Learning</option>
+        </select>
+
+        <button type="submit" class="btn">
+    Find Best Job Matches
+</button>
+
+
+    </form>
+
+    {% if match_score is not none %}
+    <div class="progress-section">
+    <p class="score-label">
+        Overall Match Score: <strong>{{ match_score }}%</strong>
+    </p>
+
+    <div class="progress-bar">
+        <div
+            class="progress-fill"
+            style="width: {{ match_score }}%;"
+        ></div>
+    </div>
+</div>
+{% endif %}
+
+    {% if recommendations|length == 0 %}
+<p class="empty-msg">
+    No jobs found for this domain. Try different skills.
+</p>
+{% endif %}
+
+
+    {% if recommendations %}
+    <h3 class="section-title">Recommended Jobs</h3>
+
+    {% for job in recommendations %}
+        <div class="job-card animate-card">
+
+            <h4 class="job-title">{{ job.title }}</h4>
+
+            <p class="job-score">
+                Match Score:
+                <span class="highlight">{{ job.score }}%</span>
+            </p>
+
+            <p class="job-summary">
+                You match {{ job.matched_skills | length }}
+                out of {{ job.total_required }} required skills.
+            </p>
+
+            <div class="skills-block">
+                <p class="label">Matched Skills</p>
+                {% for skill in job.matched_skills %}
+                    <span class="skill matched">{{ skill }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="skills-block">
+                <p class="label">Missing Skills</p>
+                {% for skill in job.missing_skills %}
+                    <span class="skill missing">{{ skill }}</span>
+                {% endfor %}
+            </div>
+
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+</body>
+</html>
